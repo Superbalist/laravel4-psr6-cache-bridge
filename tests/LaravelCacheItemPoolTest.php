@@ -527,7 +527,7 @@ class LaravelCacheItemPoolTest extends TestCase
         $this->assertEquals(1, count($items));
         $this->assertArrayHasKey('first_name', $items);
 
-        $item2 = $items['first_name']; /** @var LaravelCacheItem $item2 */
+        $item2 = $items['first_name']; /* @var LaravelCacheItem $item2 */
         $this->assertNotSame($item, $item2);
         $this->assertInstanceOf(LaravelCacheItem::class, $item2);
         $this->assertEquals('first_name', $item2->getKey());
@@ -546,7 +546,7 @@ class LaravelCacheItemPoolTest extends TestCase
         $this->assertEquals(1, count($items));
         $this->assertArrayHasKey('first_name', $items);
 
-        $item2 = $items['first_name']; /** @var LaravelCacheItem $item2 */
+        $item2 = $items['first_name']; /* @var LaravelCacheItem $item2 */
         $this->assertNotSame($item, $item2);
         $this->assertInstanceOf(LaravelCacheItem::class, $item2);
         $this->assertEquals('first_name', $item2->getKey());
@@ -564,7 +564,7 @@ class LaravelCacheItemPoolTest extends TestCase
         $this->assertArrayHasKey('first_name', $items);
         $this->assertArrayHasKey('last_name', $items);
 
-        $item2 = $items['last_name']; /** @var LaravelCacheItem $item2 */
+        $item2 = $items['last_name']; /* @var LaravelCacheItem $item2 */
         $this->assertNotSame($item, $item2);
         $this->assertInstanceOf(LaravelCacheItem::class, $item2);
         $this->assertEquals('last_name', $item2->getKey());
@@ -592,7 +592,7 @@ class LaravelCacheItemPoolTest extends TestCase
         $this->assertEquals(1, count($items));
         $this->assertArrayHasKey('birthday', $items);
 
-        $item2 = $items['birthday']; /** @var LaravelCacheItem $item2 */
+        $item2 = $items['birthday']; /* @var LaravelCacheItem $item2 */
         $this->assertNotSame($item, $item2);
         $this->assertInstanceOf(LaravelCacheItem::class, $item2);
         $this->assertEquals('birthday', $item2->getKey());
