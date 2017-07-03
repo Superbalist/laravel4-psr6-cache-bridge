@@ -1,6 +1,6 @@
 # laravel4-psr6-cache-bridge
 
-A PSR6 cache implementation for Laravel 4.
+A [PSR6](http://www.php-fig.org/psr/psr-6/) cache implementation for Laravel 4.
 
 [![Author](http://img.shields.io/badge/author-@superbalist-blue.svg?style=flat-square)](https://twitter.com/superbalist)
 [![Build Status](https://img.shields.io/travis/Superbalist/laravel4-psr6-cache-bridge/master.svg?style=flat-square)](https://travis-ci.org/Superbalist/laravel4-psr6-cache-bridge)
