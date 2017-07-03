@@ -2,8 +2,8 @@
 
 namespace Superbalist\Laravel4PSR6CacheBridge;
 
-use Exception;
 use DateTimeImmutable;
+use Exception;
 use Illuminate\Cache\Repository;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
@@ -70,7 +70,7 @@ class LaravelCacheItemPool implements CacheItemPoolInterface
         $this->validateKey($key);
 
         if (isset($this->deferred[$key])) {
-            return clone($this->deferred[$key]);
+            return clone $this->deferred[$key];
         } elseif ($this->repository->has($key)) {
             return new LaravelCacheItem($key, $this->repository->get($key), true);
         } else {
@@ -94,7 +94,7 @@ class LaravelCacheItemPool implements CacheItemPoolInterface
      *   key is not found. However, if no keys are specified then an empty
      *   traversable MUST be returned instead.
      */
-    public function getItems(array $keys = array())
+    public function getItems(array $keys = [])
     {
         $values = [];
         foreach ($keys as $key) {
@@ -182,6 +182,7 @@ class LaravelCacheItemPool implements CacheItemPoolInterface
      * @param string[] $keys
      *   An array of keys that should be removed from the pool.
 
+     *
      * @throws InvalidArgumentException
      *   If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
@@ -289,12 +290,13 @@ class LaravelCacheItemPool implements CacheItemPoolInterface
 
     /**
      * @param string $key
+     *
      * @throws InvalidArgumentException
      */
     private function validateKey($key)
     {
         if (!is_string($key) || preg_match('#[{}\(\)/\\\\@:]#', $key)) {
-            throw new InvalidArgumentException;
+            throw new InvalidArgumentException();
         }
     }
 }

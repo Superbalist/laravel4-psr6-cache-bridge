@@ -119,7 +119,7 @@ class LaravelCacheItem implements CacheItemInterface
      */
     public function expiresAt($expiration)
     {
-        if ($expiration instanceof DateTimeInterface && ! $expiration instanceof DateTimeImmutable) {
+        if ($expiration instanceof DateTimeInterface && !$expiration instanceof DateTimeImmutable) {
             $timezone = $expiration->getTimezone();
             $expiration = DateTimeImmutable::createFromFormat('U', (string) $expiration->getTimestamp(), $timezone);
             $expiration->setTimezone($timezone);
