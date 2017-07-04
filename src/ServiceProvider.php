@@ -2,7 +2,7 @@
 
 namespace Superbalist\Laravel4PSR6CacheBridge;
 
-use Illuminate\Cache\Repository;
+use Illuminate\Cache\CacheManager;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Psr\Cache\CacheItemPoolInterface;
 
@@ -16,8 +16,9 @@ class ServiceProvider extends BaseServiceProvider
         $this->app->bind(CacheItemPoolInterface::class, LaravelCacheItemPool::class);
 
         $this->app->bind(LaravelCacheItemPool::class, function ($app) {
-            $repository = $app->make(Repository::class);
-            return new LaravelCacheItemPool($repository);
+            $manager = $app['cache']; /** @var CacheManager $manager */
+            $cache = $manager->driver();
+            return new LaravelCacheItemPool($cache);
         });
     }
 }
